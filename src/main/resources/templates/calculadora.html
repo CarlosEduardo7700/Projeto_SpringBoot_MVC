@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
     <meta charset="UTF-8">
     <title>Calcular Média da FIAP</title>
 </head>
 <body>
 
-    <h1>Calculadora da Média da FIAP</h1>
+    <div layout:fragment="conteudo">
+        <h1>Calculadora da Média da FIAP</h1>
 
-    <form action="/calculadora" method="post">
-        <div>
-            <label>Média do 1º semestre</label>
-            <input type="number" name="media1Semestre" placeholder="Informe sua média do primeiro semestre">
-        </div>
-        <div>
-            <label>Média do CP</label>
-            <input type="number" name="mediaCPs" placeholder="Informe sua média dos CPs">
-        </div>
-        <div>
-            <label>Nota do Challenge</label>
-            <input type="number" name="notaChallenge" placeholder="Informe sua nota no Challenge">
-        </div>
-        <div>
-            <label>Nota da Global Solution</label>
-            <input type="number" name="notaGS" placeholder="Informe sua nota na GS">
-        </div>
+        <form action="/calculadora" method="post">
+            <div>
+                <label>Média do 1º semestre</label>
+                <input type="number" name="media1Semestre" placeholder="Informe sua média do primeiro semestre">
+            </div>
+            <div>
+                <label>Média do CP</label>
+                <input type="number" name="mediaCPs" placeholder="Informe sua média dos CPs">
+            </div>
+            <div>
+                <label>Nota do Challenge</label>
+                <input type="number" name="notaChallenge" placeholder="Informe sua nota no Challenge">
+            </div>
+            <div>
+                <label>Nota da Global Solution</label>
+                <input type="number" name="notaGS" placeholder="Informe sua nota na GS">
+            </div>
 
-        <input type="submit" value="Me formei?">
-    </form>
+            <input type="submit" value="Me formei?">
+        </form>
 
-    <p th:text="${msg}"></p>
-    <p th:text="${mediaFinal}"></p>
+        <p th:text="${msg}"></p>
+        <p th:text="${mediaFinal}"></p>
+    </div>
+
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
 </body>
 </html>

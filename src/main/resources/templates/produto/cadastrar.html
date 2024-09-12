@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+    <div layout:fragment="conteudo">
+        <h1>Cadastrar produto:</h1>
+        <form action="/produto/cadastrar" method="post">
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Informe o nome do Produto">
+            <label>Valor</label>
+            <input type="text" name="valor" placeholder="Informe o valor do Produto">
+            <input type="submit" value="Salvar">
+            <br>
+            <p th:text="${msg}"></p>
+            <p th:text="${nome}"></p>
+            <p th:text="${valor}"></p>
+        </form>
+    </div>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

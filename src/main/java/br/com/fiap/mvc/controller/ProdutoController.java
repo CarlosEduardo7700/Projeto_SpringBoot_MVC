@@ -13,7 +13,7 @@ public class ProdutoController {
 
     @GetMapping("cadastrar")
     public String cadastrarProduto() {
-        return "produto/form_cadastro";
+        return "produto/cadastrar";
     }
 
     @PostMapping("cadastrar")
@@ -22,6 +22,6 @@ public class ProdutoController {
         model.addAttribute("nome", nome);
         model.addAttribute("valor", valor);
         model.addAttribute("msg", "Produto cadastrado!");
-        return "produto/form_cadastro";
+        return "produto/cadastrar";
     }
 }
