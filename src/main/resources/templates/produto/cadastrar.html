@@ -9,16 +9,37 @@
 <body>
     <div layout:fragment="conteudo">
         <h1>Cadastrar produto:</h1>
-        <form action="/produto/cadastrar" method="post">
-            <label>Nome</label>
-            <input type="text" name="nome" placeholder="Informe o nome do Produto">
-            <label>Valor</label>
-            <input type="text" name="valor" placeholder="Informe o valor do Produto">
-            <input type="submit" value="Salvar">
+        <form th:action="@{/produto/cadastrar}" th:object="${produto}" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input class="form-control" th:field="*{nome}" type="text" id="nome" placeholder="Informe o nome do Produto">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Valor</label>
+                <input class="form-control" th:field="*{valor}" type="text" id="valor" placeholder="Informe o valor do Produto">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+                <input class="form-control" th:field="*{descricao}" type="text" id="descricao" placeholder="Informe uma descrição do Produto">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Data de Fabricação</label>
+                <input class="form-control" th:field="*{dataDeFabricacao}" type="date" id="dataDeFabricacao" placeholder="Informe a data de fabricação do Produto">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">É novo?</label>
+                <input th:field="*{novo}" type="checkbox" id="novo" placeholder="Informe se o Produto é novo">
+            </div>
+
+            <button class="btn btn-success">Salvar</button>
+
             <br>
             <p th:text="${msg}"></p>
-            <p th:text="${nome}"></p>
-            <p th:text="${valor}"></p>
         </form>
     </div>
 
