@@ -31,9 +31,14 @@
                     <a th:href="@{/produto/editar/}+${prod.id}"
                        class="btn btn-outline-primary">Editar</a>
                 </th>
+                <th>
+                    <a th:href="@{/produto/deletar/}+${prod.id}"
+                       class="btn btn-outline-primary">Deletar</a>
+                </th>
             </tr>
         </table>
         <a th:href="@{/produto/cadastrar}">Cadastrar</a>
+        <p th:text="${mensagem}"></p>
     </div>
 </body>
 </html>
