@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("produto")
@@ -23,10 +24,10 @@ public class ProdutoController {
 
     @PostMapping("cadastrar")
     @Transactional
-    public String post(Produto produto, Model model) {
+    public String post(Produto produto, RedirectAttributes redirectAttributes) {
         repository.save(produto);
-        model.addAttribute("msg", "Produto cadastrado!");
-        return "produto/cadastrar";
+        redirectAttributes.addFlashAttribute("msg", "Produto cadastrado!");
+        return "redirect:/produto/cadastrar";
     }
 
     @GetMapping("listar")
@@ -42,19 +43,17 @@ public class ProdutoController {
     }
 
     @PostMapping("editar")
-    public String update(Produto produto, Model model) {
+    public String update(Produto produto, RedirectAttributes redirectAttributes) {
         repository.save(produto);
-        model.addAttribute("mensagem", "Produto Atualizado!");
-        model.addAttribute("produtos", repository.findAll());
-        return "produto/listar";
+        redirectAttributes.addFlashAttribute("mensagem", "Produto Atualizado!");
+        return "redirect:/produto/listar";
     }
 
-    @PostMapping("deletar/{id}")
+    @PostMapping("deletar")
     @Transactional
-    public String deletar(@PathVariable("id") Long id, Model model) {
+    public String deletar(Long id, RedirectAttributes redirectAttributes) {
         repository.deleteById(id);
-        model.addAttribute("mensagem", "Produto Deletado!");
-        model.addAttribute("produtos", repository.findAll());
-        return "produto/listar";
+        redirectAttributes.addFlashAttribute("mensagem", "Produto Deletado!");
+        return "redirect:/produto/listar";
     }
 }
