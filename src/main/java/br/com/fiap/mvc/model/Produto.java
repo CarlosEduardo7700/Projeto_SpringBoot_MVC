@@ -32,4 +32,8 @@ public class Produto {
 
     @Column(name = "ST_NOVO", nullable = false)
     private Boolean novo;
+
+    @Column(name = "STATUS_PRODUTO", nullable = false)
+    private StatusProduto status;
+
 }

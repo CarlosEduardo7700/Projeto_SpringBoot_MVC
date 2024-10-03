@@ -1,6 +1,7 @@
 package br.com.fiap.mvc.controller;
 
 import br.com.fiap.mvc.model.Produto;
+import br.com.fiap.mvc.model.StatusProduto;
 import br.com.fiap.mvc.repositories.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class ProdutoController {
     @GetMapping("cadastrar")
     public String cadastrarProduto(Model model) {
         model.addAttribute("produto", new Produto());
+        model.addAttribute("status", StatusProduto.values());
         return "produto/cadastrar";
     }
 
