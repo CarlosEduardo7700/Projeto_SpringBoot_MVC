@@ -34,6 +34,14 @@
         </div>
 
         <div class="mb-3">
+            <label class="form-label">Status do Produto</label>
+            <select class="form-control" th:field="*{status}">
+                <option th:each="st:${status}" th:value="${st}" th:text="${st.label}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
             <label class="form-label">É novo?</label>
             <input th:field="*{novo}" type="checkbox" id="novo" placeholder="Informe se o Produto é novo">
         </div>

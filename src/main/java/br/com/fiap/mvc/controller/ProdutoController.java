@@ -41,6 +41,7 @@ public class ProdutoController {
     @GetMapping("editar/{id}")
     public String editar(@PathVariable("id") Long id, Model model) {
         model.addAttribute("produto", repository.findById(id));
+        model.addAttribute("status", StatusProduto.values());
         return "produto/editar";
     }
 
